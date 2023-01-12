@@ -1,0 +1,21 @@
+name: ${name}
+description: Adds a command to summon multiple mobs at once
+authors:
+  - srnyx
+website: https://srnyx.xyz
+
+main: xyz.srnyx.manymobs.ManyMobs
+version: ${version}
+
+commands:
+  manymobs:
+    description: Main command for ManyMobs
+    aliases:
+      - mobs
+      - spawnmany
+      - summonmany
+    permission: manymobs.command
+
+permissions:
+  manymobs.command:
+    description: Allows the player to use /manymobs
