@@ -1,17 +1,17 @@
 package xyz.srnyx.manymobs;
 
-import org.bukkit.ChatColor;
-
 import xyz.srnyx.annoyingapi.AnnoyingPlugin;
+import xyz.srnyx.annoyingapi.PluginPlatform;
 
 
 public class ManyMobs extends AnnoyingPlugin {
     public ManyMobs() {
-        super();
-
-        // Options
-        options.colorLight = ChatColor.GREEN;
-        options.colorDark = ChatColor.DARK_GREEN;
-        options.commands.add(new ManymobsCommand(this));
+        options
+                .pluginOptions(pluginOptions -> pluginOptions.updatePlatforms(
+                        PluginPlatform.modrinth("many-mobs"),
+                        PluginPlatform.hangar(this, "srnyx"),
+                        PluginPlatform.spigot("109423")))
+                .bStatsOptions(bStatsOptions -> bStatsOptions.id(18669))
+                .registrationOptions.commandsToRegister.add(new ManymobsCommand(this));
     }
 }

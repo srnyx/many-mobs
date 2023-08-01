@@ -1,11 +1,12 @@
 name: ${name}
-description: Adds a command to summon multiple mobs at once
+description: ${description}
 authors:
   - srnyx
-website: https://srnyx.xyz
+website: https://srnyx.com
 
-main: xyz.srnyx.manymobs.ManyMobs
+main: ${group}.manymobs.ManyMobs
 version: ${version}
+api-version: 1.13
 
 commands:
   manymobs:
