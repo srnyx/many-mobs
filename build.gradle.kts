@@ -8,5 +8,5 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-setupAnnoyingAPI("4.1.0", "xyz.srnyx", "1.0.0", "Adds a command to summon multiple mobs at once")
+setupAnnoyingAPI("4.1.0", "xyz.srnyx", "2.0.0", "Adds a command to summon multiple mobs at once")
 spigotAPI("1.8.8")

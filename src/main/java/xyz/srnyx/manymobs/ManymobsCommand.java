@@ -13,8 +13,6 @@ import xyz.srnyx.annoyingapi.command.AnnoyingSender;
 import xyz.srnyx.annoyingapi.message.AnnoyingMessage;
 import xyz.srnyx.annoyingapi.utility.BukkitUtility;
 
-import xyz.srnyx.manymobs.ManyMobs;
-
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
