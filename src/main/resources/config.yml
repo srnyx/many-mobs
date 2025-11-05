@@ -1,0 +1,3 @@
+# If false, no feedback message will be sent when using the spawn command
+# This is useful if another plugin is using Many Mobs' spawn command and you want to reduce spam
+enable-spawn-messages: true
