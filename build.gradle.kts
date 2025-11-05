@@ -1,12 +1,19 @@
+import xyz.srnyx.gradlegalaxy.data.config.DependencyConfig
+import xyz.srnyx.gradlegalaxy.data.config.JavaSetupConfig
 import xyz.srnyx.gradlegalaxy.utility.setupAnnoyingAPI
 import xyz.srnyx.gradlegalaxy.utility.spigotAPI
 
 
 plugins {
     java
-    id("xyz.srnyx.gradle-galaxy") version "1.1.2"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("xyz.srnyx.gradle-galaxy") version "2.0.2"
+    id("com.gradleup.shadow") version "8.3.9"
 }
 
-setupAnnoyingAPI("4.1.0", "xyz.srnyx", "2.0.0", "Adds a command to summon multiple mobs at once")
-spigotAPI("1.8.8")
+spigotAPI(config = DependencyConfig(version = "1.8.8"))
+setupAnnoyingAPI(
+    javaSetupConfig = JavaSetupConfig(
+        group = "xyz.srnyx",
+        version = "2.0.0",
+        description = "Adds a command to summon multiple mobs at once"),
+    annoyingAPIConfig = DependencyConfig(version = "e9ad7a91ef"))
