@@ -14,6 +14,6 @@ spigotAPI(config = DependencyConfig(version = "1.8.8"))
 setupAnnoyingAPI(
     javaSetupConfig = JavaSetupConfig(
         group = "xyz.srnyx",
-        version = "2.0.0",
+        version = "3.0.0",
         description = "Adds a command to summon multiple mobs at once"),
     annoyingAPIConfig = DependencyConfig(version = "e9ad7a91ef"))
