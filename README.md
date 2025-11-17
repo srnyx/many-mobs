@@ -10,7 +10,7 @@ Adds a command to summon multiple mobs at once. Made this since it's not possibl
 
 ## Download
 
-**✅ Stable:** You can download the latest **stable** version at [Modrinth](https://modrinth.com/plugin/many-mobs), [Hangar](https://hangar.papermc.io/srnyx/ManyMobs), [Spigot](https://spigotmc.org/resources/109423), [Bukkit](https://dev.bukkit.org/projects/many-mobs), or [GitHub](https://github/com/srnyx/many-mobs/releases)
+**✅ Stable:** You can download the latest **stable** version at [Modrinth](https://modrinth.com/plugin/many-mobs), [Hangar](https://hangar.papermc.io/srnyx/ManyMobs), [Spigot](https://spigotmc.org/resources/109423), [Bukkit](https://dev.bukkit.org/projects/many-mobs), or [GitHub](https://github.com/srnyx/many-mobs/releases)
 
 **🚧 Snapshot:** You can download the latest **snapshot** version at [actions/workflows/build.yml](https://github.com/srnyx/many-mobs/actions/workflows/build.yml)
 
