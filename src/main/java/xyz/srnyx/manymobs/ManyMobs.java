@@ -1,26 +1,32 @@
 package xyz.srnyx.manymobs;
 
 import org.jetbrains.annotations.NotNull;
-
 import xyz.srnyx.annoyingapi.AnnoyingPlugin;
-import xyz.srnyx.annoyingapi.PluginPlatform;
+import xyz.srnyx.manymobs.messages.ManyMessagesProvider;
+import xyz.srnyx.manymobs.stats.FastStats;
 
 
 public class ManyMobs extends AnnoyingPlugin {
-    @NotNull public ManyConfig config = new ManyConfig(this);
+    public ManyConfig config;
 
     public ManyMobs() {
-        options
-                .pluginOptions(pluginOptions -> pluginOptions.updatePlatforms(
-                        PluginPlatform.modrinth("p7CONpnK"),
-                        PluginPlatform.hangar(this, "srnyx"),
-                        PluginPlatform.spigot("109423")))
-                .bStatsOptions(bStatsOptions -> bStatsOptions.id(18669))
-                .registrationOptions.toRegister.add(new ManymobsCommand(this));
+        options.statsOptions(statsOptions -> statsOptions
+                .bStats(bStatsOptions -> bStatsOptions.id(18669))
+                .fastStats(fastStatsOptions -> fastStatsOptions.loader(FastStats.class)));
+    }
+
+    @Override @NotNull
+    public ManyMessagesProvider getMessages() {
+        return (ManyMessagesProvider) super.getMessages();
+    }
+
+    @Override
+    public void load() {
+        config = configLoader.build(builder -> builder.config(new ManyConfig()));
     }
 
     @Override
     public void reload() {
-        config = new ManyConfig(this);
+        config.reload();
     }
 }

@@ -5,38 +5,26 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import xyz.srnyx.annoyingapi.command.AnnoyingCommand;
 import xyz.srnyx.annoyingapi.command.AnnoyingSender;
 import xyz.srnyx.annoyingapi.command.selector.SelectorOptional;
 import xyz.srnyx.annoyingapi.libs.javautilities.StringUtility;
 import xyz.srnyx.annoyingapi.libs.javautilities.manipulation.Mapper;
-import xyz.srnyx.annoyingapi.message.AnnoyingMessage;
 import xyz.srnyx.annoyingapi.message.DefaultReplaceType;
 import xyz.srnyx.annoyingapi.utility.BukkitUtility;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class ManymobsCommand extends AnnoyingCommand {
-    @NotNull private final ManyMobs plugin;
-
-    public ManymobsCommand(@NotNull ManyMobs plugin) {
-        this.plugin = plugin;
-    }
-
-    @Override @NotNull
-    public ManyMobs getAnnoyingPlugin() {
-        return plugin;
-    }
-
-    @Override @NotNull
-    public String getPermission() {
-        return "manymobs.command";
+public class ManymobsCmd extends xyz.srnyx.manymobs.commands.generated.ManymobsCmdGen {
+    public ManymobsCmd(@NotNull ManyMobs plugin) {
+        super(plugin);
     }
 
     @Override
@@ -44,7 +32,7 @@ public class ManymobsCommand extends AnnoyingCommand {
         // reload
         if (sender.args.length == 1 && sender.argEquals(0, "reload")) {
             plugin.reloadPlugin();
-            new AnnoyingMessage(plugin, "command.reload").send(sender);
+            plugin.getMessages().get().command.reload.newMessage().send(sender);
             return;
         }
 
@@ -88,7 +76,7 @@ public class ManymobsCommand extends AnnoyingCommand {
         }
 
         // Send message
-        if (!plugin.config.enableSpawnMessages) return;
+        if (!plugin.config.enable_spawn_messages) return;
         if (locations.size() == 1) {
             final Location location = locations.get(0);
             final double x = location.getX();
@@ -96,7 +84,7 @@ public class ManymobsCommand extends AnnoyingCommand {
             final double z = location.getZ();
             final float yaw = location.getYaw();
             final float pitch = location.getPitch();
-            new AnnoyingMessage(plugin, "command.spawn")
+            plugin.getMessages().get().command.spawn.newMessage()
                     .replace("%amount%", amount)
                     .replace("%type%", type.name())
                     .replace("%world%", location.getWorld().getName())
@@ -108,7 +96,7 @@ public class ManymobsCommand extends AnnoyingCommand {
                     .replace("%location%", x + ", " + y + ", " + z + ", " + yaw + ", " + pitch)
                     .send(sender);
         } else {
-            new AnnoyingMessage(plugin, "command.spawn-multiple")
+            plugin.getMessages().get().command.spawn_multiple.newMessage()
                     .replace("%amount%", amount)
                     .replace("%type%", type.name())
                     .replace("%locations%", locations.size())
@@ -136,7 +124,7 @@ public class ManymobsCommand extends AnnoyingCommand {
                 final List<String> results = new ArrayList<>();
                 results.add(StringUtility.formatNumber(location.getX(), "#.##"));
                 for (final World world : Bukkit.getWorlds()) results.add("#" + world.getName());
-                plugin.selectorManager.addKeysTo(results, Player.class);
+                sender.addSelectorKeysTo(results, Player.class);
                 results.addAll(BukkitUtility.getOnlinePlayerNames());
                 return results;
             }
@@ -166,7 +154,7 @@ public class ManymobsCommand extends AnnoyingCommand {
         final SelectorOptional<Player> selector = SelectorOptional.of(sender, argument3, Player.class);
         if (selector.isPresent()) {
             // Expand selector
-            final List<Player> players = selector.getSelector().expand(sender);
+            final List<Player> players = selector.selector().expand(sender);
             if (players == null) {
                 sender.invalidArgument(3);
                 return null;

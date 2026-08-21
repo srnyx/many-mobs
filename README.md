@@ -17,3 +17,9 @@ Adds a command to summon multiple mobs at once. Made this since it's not possibl
 # Wiki
 
 For all information about the plugin (commands, permissions, etc...) please see the wiki at [github.com/srnyx/many-mobs/wiki](https://github.com/srnyx/many-mobs/wiki)
+
+### not sponsors, just cool stuff :)
+
+[![Lilypad server hosting](https://srnyx.com/assets/banners/lilypad.png)](https://srnyx.com/lilypad?utm_medium=listing&utm_content=lilypad&utm_source=github&utm_campaign=many-mobs)
+[![Review me on TrustPilot!](https://srnyx.com/assets/banners/reviewme.png)](https://srnyx.com/review?utm_medium=listing&utm_content=review&utm_source=github&utm_campaign=many-mobs)
+[![Host events on Event Alerts](https://srnyx.com/assets/banners/eventalerts.png)](https://eventalerts.gg?utm_medium=listing&utm_content=eventalerts&utm_source=github&utm_campaign=many-mobs)

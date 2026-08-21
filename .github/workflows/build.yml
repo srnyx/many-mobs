@@ -2,6 +2,7 @@ name: Build
 on:
   push:
     branches:
+      - main
       - master
     paths:
       - 'gradle/**'
@@ -10,10 +11,12 @@ on:
       - 'settings.gradle.kts'
       - 'gradlew'
       - 'gradlew.bat'
+  release:
+    types:
+      - published
   workflow_dispatch:
 
 jobs:
   build:
-    uses: srnyx/tools/.github/workflows/build.yml@main
-    with:
-      name: Many Mobs
+    uses: srnyx/tools/.github/workflows/publish.yml@main
+    secrets: inherit
